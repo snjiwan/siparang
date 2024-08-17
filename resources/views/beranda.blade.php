@@ -16,11 +16,11 @@
 						<!-- One -->
 							<section id="one" class="wrapper spotlight style1">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+									<a href="#" class="image"><img src="{{asset('front/images/pic01.jpg')}}" alt="" /></a>
 									<div class="content">
 										<h2 class="major">Wisata 1</h2>
 										<p>Ini Deskripsi Wisata 1.</p>
-										<a href="#" class="special">Learn more</a>
+										<a href="{{ url ('/destination')}}" class="special">Learn more</a>
 									</div>
 								</div>
 							</section>
@@ -28,7 +28,7 @@
 						<!-- Two -->
 							<section id="two" class="wrapper alt spotlight style2">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+									<a href="#" class="image"><img src="{{asset('front/images/pic02.jpg')}}" alt="" /></a>
 									<div class="content">
 										<h2 class="major">Wisata 2</h2>
 										<p>Ini Deskripsi Wisata 2.</p>
@@ -40,7 +40,7 @@
 						<!-- Three -->
 							<section id="three" class="wrapper spotlight style3">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+									<a href="#" class="image"><img src="{{asset('front/images/pic03.jpg')}}" alt="" /></a>
 									<div class="content">
 										<h2 class="major">Wisata 3	</h2>
 										<p>Ini Deskripsi Wisata 3.</p>
@@ -56,25 +56,25 @@
 									<p>Keterangan.</p>
 									<section class="features">
 										<article>
-											<a href="#" class="image"><img src="" alt="" /></a>
+											<a href="" class="image"><img src="" alt="" /></a>
 											<h3 class="major">Point 1</h3>
 											<p>Deskripsi 1.</p>
 											<!-- <a href="#" class="special">Learn more</a> -->
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+											<a href="{{ url ('/activity') }}" class="image"><img src="{{asset('front/images/pic05.jpg')}}" alt="" /></a>
 											<h3 class="major">Point 2</h3>
 											<p>Deskripsi 2.</p>
 											<!-- <a href="#" class="special">Learn more</a> -->
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="{{asset('front/images/pic06.jpg')}}" alt="" /></a>
 											<h3 class="major">Point 3</h3>
 											<p>Deskripsi 3.</p>
 											<!-- <a href="#" class="special">Learn more</a> -->
 										</article>
 										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<a href="#" class="image"><img src="{{asset('front/images/pic07.jpg')}}" alt="" /></a>
 											<h3 class="major">Point 4</h3>
 											<p>Deskripsi 4.</p>
 											<!-- <a href="#" class="special">Learn more</a> -->

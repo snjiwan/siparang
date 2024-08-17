@@ -5,6 +5,8 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\ReadController;
+use App\Http\Controllers\ActivityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +30,5 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 Route::get('/konten', [KontenController::class, 'index']);
 Route::get('/kegiatan', [KegiatanController::class, 'index']);
 Route::get('/wisata', [WisataController::class, 'index']);
+Route::get('/destination', [ReadController::class, 'index']);
+Route::get('/activity', [ActivityController::class, 'index']);
