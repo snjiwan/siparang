@@ -8,7 +8,10 @@
                 <h3 class="card-title">Data Tempat Wisata</h3>
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
+                <div class="input-group input-group-sm" style="width: 250px;">
+                  <button type="button" style="margin-right: 10px">
+                    <i class="fa-solid fa-plus"></i> 
+                </button>
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                     <div class="input-group-append">
@@ -35,7 +38,12 @@
                         <td> 1 </td>
                         <td> 2 </td>
                         <td> 3 </td>
-                        <td> 4 </td>
+                        <td> <a href=""  style="text-decoration:none">
+                            <button type="button"><i class="fa-solid fa-square-xmark"></i></button>
+                             </a>
+                            <a href=""  style="text-decoration:none">
+                            <button type="button"><i class="fa-solid fa-square-pen"></i></button>
+                            </a> </td>
                     </tr>
                   </tbody>
                 </table>
