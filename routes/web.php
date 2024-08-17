@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KontenController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\WisataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +26,5 @@ Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 // Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
 Route::get('/konten', [KontenController::class, 'index']);
+Route::get('/kegiatan', [KegiatanController::class, 'index']);
+Route::get('/wisata', [WisataController::class, 'index']);
