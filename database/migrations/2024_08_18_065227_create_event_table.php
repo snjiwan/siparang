@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_wisata');
-            $table->string('kegiatan', 200);
+            $table->string('nama_kegiatan', 200);
+            $table->string('deskripsi_kegiatan', 200);
             $table->string('gambar')->nullable();
             $table->timestamps();
         });

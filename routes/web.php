@@ -26,11 +26,15 @@ Route::get('/', [BerandaController::class, 'index']);
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-// Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
-// Route::get('/konten', [KontenController::class, 'index']);
+
+// Kegiatan
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
+// Route untuk menyimpan kegiatan baru
+Route::post('/kegiatan', [KegiatanController::class, 'store'])->name('kegiatan.store');
+
 Route::get('/kegiatan/create', [KegiatanController::class, 'create'])->name('createkegiatan');
 Route::get('/kegiatan/edit', [KegiatanController::class, 'edit'])->name('editkegiatan');
+
 Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');
 Route::get('/wisata/create', [WisataController::class, 'create'])->name('createwisata');
 Route::get('/wisata/edit', [WisataController::class, 'edit'])->name('editwisata');

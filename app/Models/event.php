@@ -13,7 +13,8 @@ class event extends Model
 
     protected $fillable = [
         'id_wisata',
-        'kegiatan',
+        'nama_kegiatan',
+        'deskripsi_kegiatan',
         'gambar',
     ];
 
