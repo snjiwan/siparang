@@ -31,6 +31,7 @@
                         <tr>
                             <th>No</th>
                             <th>Dokumentasi Kegiatan</th>
+                            <th>Nama Wisata</th> <!-- Kolom untuk Nama Wisata -->
                             <th>Nama Kegiatan</th>
                             <th>Deskripsi</th>
                             <th>Action</th>
@@ -47,6 +48,7 @@
                                     <span>Tidak ada gambar</span>
                                 @endif
                             </td>
+                            <td>{{ $event->wisata ? $event->wisata->nama : 'Wisata tidak ditemukan' }}</td>
                             <td>{{ $event->nama_kegiatan }}</td>
                             <td>{{ $event->deskripsi_kegiatan }}</td>
                             <td>

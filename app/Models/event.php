@@ -20,6 +20,6 @@ class event extends Model
 
     public function wisata()
     {
-        return $this->belongsTo(Wisata::class);
+        return $this->belongsTo(wisata::class, 'id_wisata');
     }
 }

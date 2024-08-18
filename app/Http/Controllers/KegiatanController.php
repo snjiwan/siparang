@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\event;
+use App\Models\wisata;
 use Illuminate\Support\Facades\DB;
 // use Illuminate\Support\Facades\Session;
 // use RealRashid\SweetAlert\Facades\Alert;
@@ -42,9 +43,10 @@ class KegiatanController extends Controller
 
     public function create()
     {
-        //
-        return view('admin.kegiatan.create');
+        $wisata = wisata::all(); // Mengambil semua data wisata
+        return view('admin.kegiatan.create', compact('wisata'));
     }
+
 
     public function store(Request $request)
     {
@@ -64,7 +66,7 @@ class KegiatanController extends Controller
             }
     
             event::create([
-                'id_wisata' => $request->id_wisata,
+                'id_wisata' => $request->id_wisata, // ID wisata disimpan di sini
                 'nama_kegiatan' => $request->nama_kegiatan,
                 'deskripsi_kegiatan' => $request->deskripsi_kegiatan,
                 'gambar' => $gambarName,
@@ -79,7 +81,11 @@ class KegiatanController extends Controller
     public function edit($id)
     {
         $kegiatan = event::findOrFail($id);
-        return view('admin.kegiatan.edit', compact('kegiatan'));
+        // Ambil semua data wisata
+        $wisata = wisata::all();
+
+        // Kirim data kegiatan dan daftar wisata ke view
+        return view('admin.kegiatan.edit', compact('kegiatan', 'wisata'));
     }
 
     // Fungsi untuk update data
@@ -120,7 +126,7 @@ class KegiatanController extends Controller
     }
 
     public function destroy($id) {
-        // Temukan data kegiatan berdasarkan ID
+    // Temukan data kegiatan berdasarkan ID
     $kegiatan = event::findOrFail($id);
 
     // Cek jika data memiliki gambar

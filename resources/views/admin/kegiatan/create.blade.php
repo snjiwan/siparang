@@ -13,8 +13,13 @@
         @csrf
         <div class="card-body">
             <div class="form-group">
-                <label for="id_wisata">Wisata</label>
-                <input type="text" class="form-control" id="id_wisata" name="id_wisata" placeholder="Wisata">
+                <label for="id_wisata">Pilih Wisata</label>
+                <select class="form-control" name="id_wisata" id="id_wisata">
+                    <option value="" disabled selected>Pilih Wisata</option>
+                    @foreach($wisata as $item)
+                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="nama_kegiatan">Nama Kegiatan</label>
