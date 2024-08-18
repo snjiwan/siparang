@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KontenController;
 use App\Http\Controllers\KegiatanController;
@@ -25,7 +26,9 @@ Route::get('/', [BerandaController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+// Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+
 
 // Kegiatan
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
