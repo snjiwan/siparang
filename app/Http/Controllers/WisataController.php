@@ -26,4 +26,17 @@ class WisataController extends Controller
     {
         return view('admin.wisata.index');
     }
+
+    public function create()
+    {
+        //
+        return view('admin.wisata.create');
+    }
+
+    public function edit()
+    {
+        //
+        // $kelas = Kelas::all()->where('id',$id);
+        return view('admin.wisata.edit');
+    }
 }

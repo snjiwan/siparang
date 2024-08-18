@@ -26,4 +26,17 @@ class KegiatanController extends Controller
     {
         return view('admin.kegiatan.index');
     }
+
+    public function create()
+    {
+        //
+        return view('admin.kegiatan.create');
+    }
+
+    public function edit()
+    {
+        //
+    //     $kelas = Kelas::all()->where('id',$id);
+        return view('admin.kegiatan.edit');
+    }
 }

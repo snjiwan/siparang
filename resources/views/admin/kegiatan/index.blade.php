@@ -8,9 +8,10 @@
                 <h3 class="card-title">Data Kegiatan</h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 250px;">
-                  <button type="button" style="margin-right: 10px">
+
+                  <a href="{{ route('createkegiatan')}}" type="button" style="margin-right: 10px">
                     <i class="fa-solid fa-plus"></i> 
-                </button>
+                  </a>
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                     <div class="input-group-append">
@@ -41,7 +42,7 @@
                         <td><a href=""  style="text-decoration:none">
                             <button type="button"><i class="fa-solid fa-square-xmark"></i></button>
                              </a>
-                            <a href=""  style="text-decoration:none">
+                            <a href="{{route('editkegiatan')}}"  style="text-decoration:none">
                             <button type="button"><i class="fa-solid fa-square-pen"></i></button>
                             </a>
                     </td>
