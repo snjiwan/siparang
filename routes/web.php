@@ -27,8 +27,8 @@ Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 // Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
-Route::get('/konten', [KontenController::class, 'index']);
-Route::get('/kegiatan', [KegiatanController::class, 'index']);
-Route::get('/wisata', [WisataController::class, 'index']);
+// Route::get('/konten', [KontenController::class, 'index']);
+Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan');
+Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');
 Route::get('/destination', [ReadController::class, 'index']);
 Route::get('/activity', [ActivityController::class, 'index']);
