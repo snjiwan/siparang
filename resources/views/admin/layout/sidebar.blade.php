@@ -67,7 +67,7 @@
            </li>
            <li class="nav-item">
             <a href="{{ route('kegiatan') }}" class="nav-link {{ Request::is('kegiatan*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Kegiatan
                 <!-- <i class="fas fa-angle-left right"></i> -->
@@ -76,7 +76,7 @@
           </li>
            <li class="nav-item">
             <a href="{{ route('wisata') }}" class="nav-link {{ Request::is('wisata*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon far fa-image"></i>
               <p>
                 Tempat Wisata
                 <!-- <i class="fas fa-angle-left right"></i> -->

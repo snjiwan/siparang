@@ -7,19 +7,18 @@
               <div class="card-header">
                 <h3 class="card-title">Data Kegiatan</h3>
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 250px;">
-
-                  <a href="{{ route('createkegiatan')}}" type="button" style="margin-right: 10px">
-                    <i class="fa-solid fa-plus"></i> 
-                  </a>
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
+                  <div class="input-group input-group-sm">
+                  <div class="input-group-append">
+                    <a href="{{ route('createkegiatan')}}" class="btn btn-primary float-right" style="margin-right: 10px">
+                      <i class="fa-solid fa-plus"></i> 
+                    </a>
+                  </div>
+                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                  <div class="input-group-append">
                       <button type="submit" class="btn btn-default">
                         <i class="fas fa-search"></i>
                       </button>
-
-                    </div>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -39,13 +38,10 @@
                         <td> 1 </td>
                         <td> 2 </td>
                         <td> 3 </td>
-                        <td><a href=""  style="text-decoration:none">
-                            <button type="button"><i class="fa-solid fa-square-xmark"></i></button>
-                             </a>
-                            <a href="{{route('editkegiatan')}}"  style="text-decoration:none">
-                            <button type="button"><i class="fa-solid fa-square-pen"></i></button>
-                            </a>
-                    </td>
+                        <td>
+                        <a href="{{route('editkegiatan')}}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                        <a href=""><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a>
+                        </td>
                     </tr>
                   </tbody>
                 </table>
