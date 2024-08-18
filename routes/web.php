@@ -43,10 +43,18 @@ Route::get('/kegiatan/{id}/edit', [KegiatanController::class, 'edit'])->name('ke
 // Route untuk memperbarui data kegiatan
 Route::put('/kegiatan/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
 
-
-
+// Menampilkan daftar wisata
 Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');
+// Menampilkan form untuk menambahkan wisata baru
 Route::get('/wisata/create', [WisataController::class, 'create'])->name('createwisata');
-Route::get('/wisata/edit', [WisataController::class, 'edit'])->name('editwisata');
+// Menyimpan wisata baru
+Route::post('/wisata', [WisataController::class, 'store'])->name('wisata.store');
+// Menampilkan form untuk mengedit wisata
+Route::get('/wisata/{id}/edit', [WisataController::class, 'edit'])->name('editwisata');
+// Memperbarui wisata
+Route::put('/wisata/{id}', [WisataController::class, 'update'])->name('wisata.update');
+// Menghapus wisata
+Route::delete('/wisata/{id}', [WisataController::class, 'destroy'])->name('wisata.destroy');
+
 Route::get('/destination', [ReadController::class, 'index']);
 Route::get('/activity', [ActivityController::class, 'index']);
