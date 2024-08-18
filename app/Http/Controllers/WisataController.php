@@ -22,10 +22,19 @@ class WisataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
          // Mengambil semua data dari model Wisata
-         $wisatas = Wisata::all();
+         $wisatas = wisata::all();
+         // Ambil nilai pencarian dari input
+        $search = $request->input('search');
+
+        // Query untuk mengambil data wisata
+        $wisata = wisata::when($search, function ($query, $search) {
+            return $query->where('nama', 'like', '%' . $search . '%')
+                        ->orWhere('deskripsi', 'like', '%' . $search . '%')
+                        ->orWhere('lokasi', 'like', '%' . $search . '%');
+        })->paginate(10); // Tambahkan pagination jika diperlukan
 
          // Mengirimkan data ke view
          return view('admin.wisata.index', compact('wisatas'));
@@ -39,7 +48,7 @@ class WisataController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data yang dikirimkan dari form
+        // Validasi data yang dikirimkan
         $request->validate([
             'nama' => 'required|string|max:50',
             'deskripsi' => 'required|string',
@@ -55,44 +64,53 @@ class WisataController extends Controller
             'harga_tiket' => 'nullable|numeric'
         ]);
 
-        // Buat data wisata baru
-        $wisata = new Wisata();
-        $wisata->nama = $request->input('nama');
-        $wisata->deskripsi = $request->input('deskripsi');
-        $wisata->akses = $request->input('akses');
-        $wisata->lokasi = $request->input('lokasi');
+        // Logika untuk menyimpan data
+        try {
+            // Proses upload gambar wisata
+            $gambarWisataName = null;
+            if ($request->hasFile('gambar_wisata')) {
+                $gambarWisataName = time() . '_wisata.' . $request->gambar_wisata->extension();
+                $request->gambar_wisata->move(public_path('images/wisata'), $gambarWisataName);
+            }
 
-        // Proses upload gambar wisata jika ada
-        if ($request->hasFile('gambar_wisata')) {
-            $gambarWisata = $request->file('gambar_wisata')->store('images/wisata', 'public');
-            $wisata->gambar_wisata = basename($gambarWisata);
+            // Proses upload gambar aktifitas
+            $gambarAktifitasName = null;
+            if ($request->hasFile('gambar_aktifitas')) {
+                $gambarAktifitasName = time() . '_aktifitas.' . $request->gambar_aktifitas->extension();
+                $request->gambar_aktifitas->move(public_path('images/wisata'), $gambarAktifitasName);
+            }
+
+            // Proses upload icon
+            $iconName = null;
+            if ($request->hasFile('icon')) {
+                $iconName = time() . '_icon.' . $request->icon->extension();
+                $request->icon->move(public_path('images/icons'), $iconName);
+            }
+
+            // Simpan data ke dalam database
+            Wisata::create([
+                'nama' => $request->nama,
+                'deskripsi' => $request->deskripsi,
+                'akses' => $request->akses,
+                'lokasi' => $request->lokasi,
+                'gambar_wisata' => $gambarWisataName,
+                'deskripsi_aktifitas' => $request->deskripsi_aktifitas,
+                'gambar_aktifitas' => $gambarAktifitasName,
+                'akomodasi' => $request->akomodasi,
+                'umkm' => $request->umkm,
+                'fasilitas_umum' => $request->fasilitas_umum,
+                'icon' => $iconName,
+                'harga_tiket' => $request->harga_tiket,
+            ]);
+
+            // Redirect ke halaman index dengan pesan sukses
+            return redirect()->route('wisata')->with('success', 'Data wisata berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            // Tangani error jika terjadi
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
         }
-
-        // Proses upload gambar aktifitas jika ada
-        if ($request->hasFile('gambar_aktifitas')) {
-            $gambarAktifitas = $request->file('gambar_aktifitas')->store('images/wisata', 'public');
-            $wisata->gambar_aktifitas = basename($gambarAktifitas);
-        }
-
-        // Proses upload icon jika ada
-        if ($request->hasFile('icon')) {
-            $icon = $request->file('icon')->store('images/icons', 'public');
-            $wisata->icon = basename($icon);
-        }
-
-        // Simpan data lainnya
-        $wisata->deskripsi_aktifitas = $request->input('deskripsi_aktifitas');
-        $wisata->akomodasi = $request->input('akomodasi');
-        $wisata->umkm = $request->input('umkm');
-        $wisata->fasilitas_umum = $request->input('fasilitas_umum');
-        $wisata->harga_tiket = $request->input('harga_tiket');
-
-        // Simpan data wisata ke database
-        $wisata->save();
-
-        // Redirect ke halaman index dengan pesan sukses
-        return redirect()->route('wisata')->with('success', 'Data wisata berhasil ditambahkan.');
     }
+
 
 
 
@@ -182,25 +200,40 @@ class WisataController extends Controller
     }
     public function destroy($id)
     {
-        // Cari data wisata berdasarkan ID
+        // Temukan data wisata berdasarkan ID
         $wisata = wisata::findOrFail($id);
 
-        // Hapus gambar wisata jika ada
+        // Cek jika data memiliki gambar wisata
         if ($wisata->gambar_wisata) {
-            Storage::delete('public/images/wisata/' . $wisata->gambar_wisata);
+            $gambarWisataPath = public_path('images/wisata/' . $wisata->gambar_wisata);
+
+            // Hapus file gambar wisata jika ada
+            if (file_exists($gambarWisataPath)) {
+                unlink($gambarWisataPath);
+            }
         }
 
-        // Hapus gambar aktifitas jika ada
+        // Cek jika data memiliki gambar aktifitas
         if ($wisata->gambar_aktifitas) {
-            Storage::delete('public/images/wisata/' . $wisata->gambar_aktifitas);
+            $gambarAktifitasPath = public_path('images/wisata/' . $wisata->gambar_aktifitas);
+
+            // Hapus file gambar aktifitas jika ada
+            if (file_exists($gambarAktifitasPath)) {
+                unlink($gambarAktifitasPath);
+            }
         }
 
-        // Hapus icon jika ada
+        // Cek jika data memiliki icon
         if ($wisata->icon) {
-            Storage::delete('public/images/icons/' . $wisata->icon);
+            $iconPath = public_path('images/icons/' . $wisata->icon);
+
+            // Hapus file icon jika ada
+            if (file_exists($iconPath)) {
+                unlink($iconPath);
+            }
         }
 
-        // Hapus data wisata dari database
+        // Hapus data dari database
         $wisata->delete();
 
         // Redirect ke halaman index dengan pesan sukses

@@ -62,7 +62,7 @@
                                 <td>{{ $wisata->deskripsi_aktifitas }}</td>
                                 <td>
                                     @if ($wisata->gambar_aktifitas)
-                                        <img src="{{ asset('images/aktifitas/' . $wisata->gambar_aktifitas) }}" alt="{{ $wisata->nama }}" width="100">
+                                        <img src="{{ asset('images/wisata/' . $wisata->gambar_aktifitas) }}" alt="{{ $wisata->nama }}" width="100">
                                     @else
                                         <span>Tidak ada gambar</span>
                                     @endif
