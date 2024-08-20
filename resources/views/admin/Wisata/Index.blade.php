@@ -14,7 +14,7 @@
                                 <i class="fa-solid fa-plus"></i> 
                             </a>
                         </div>
-                        <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ request()->get('search') }}">
+                        <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ request('search') }}">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-default">
                                 <i class="fas fa-search"></i>

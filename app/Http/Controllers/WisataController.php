@@ -24,20 +24,18 @@ class WisataController extends Controller
      */
     public function index(Request $request)
     {
-         // Mengambil semua data dari model Wisata
-         $wisatas = wisata::all();
-         // Ambil nilai pencarian dari input
+        // Ambil nilai pencarian dari input
         $search = $request->input('search');
-
+    
         // Query untuk mengambil data wisata
-        $wisata = wisata::when($search, function ($query, $search) {
+        $wisatas = Wisata::when($search, function ($query, $search) {
             return $query->where('nama', 'like', '%' . $search . '%')
-                        ->orWhere('deskripsi', 'like', '%' . $search . '%')
-                        ->orWhere('lokasi', 'like', '%' . $search . '%');
+                         ->orWhere('deskripsi', 'like', '%' . $search . '%')
+                         ->orWhere('lokasi', 'like', '%' . $search . '%');
         })->paginate(10); // Tambahkan pagination jika diperlukan
-
-         // Mengirimkan data ke view
-         return view('admin.wisata.index', compact('wisatas'));
+    
+        // Mengirimkan data ke view
+        return view('admin.wisata.index', compact('wisatas', 'search'));
     }
 
     public function create()
