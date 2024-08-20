@@ -56,5 +56,5 @@ Route::put('/wisata/{id}', [WisataController::class, 'update'])->name('wisata.up
 // Menghapus wisata
 Route::delete('/wisata/{id}', [WisataController::class, 'destroy'])->name('wisata.destroy');
 
-Route::get('/destination', [ReadController::class, 'index']);
-Route::get('/activity', [ActivityController::class, 'index']);
+Route::get('/destination/{id}', [ReadController::class, 'index']);
+Route::get('/activity/{id}', [ActivityController::class, 'index']);

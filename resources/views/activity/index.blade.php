@@ -1,116 +1,332 @@
-@extends('front.app')
-@section('front')
+<!DOCTYPE html>
+<html>
 
-					<!-- Page Wrapper -->
-                    <div id="page-wrapper">
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-<!-- Header -->
-    <header id="header">
-        <h1><a href="index.html">Solid State</a></h1>
-        <nav>
-            <a href="#menu">Menu</a>
+  <title>Digitf</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{{asset('front/css/bootstrap.css')}}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{{asset('front/css/style.css')}}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{asset('front/css/responsive.css')}}" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="" />
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="about.html"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="furniture.html"> Furniture </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact us</a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a href="">
+                <img src="images/user.png" alt="">
+                <span>
+                  Login
+                </span>
+              </a>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+          </div>
+          <div>
+            <div class="custom_menu-btn ">
+              <button>
+                <span class=" s-1">
+
+                </span>
+                <span class="s-2">
+
+                </span>
+                <span class="s-3">
+
+                </span>
+              </button>
+            </div>
+          </div>
+
         </nav>
+      </div>
     </header>
+    <!-- end header section -->
+  </div>
 
-<!-- Menu -->
-    <nav id="menu">
-        <div class="inner">
-            <h2>Menu</h2>
-            <ul class="links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="generic.html">Generic</a></li>
-                <li><a href="elements.html">Elements</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-            <a href="#" class="close">Close</a>
-        </div>
-    </nav>
 
-<!-- Wrapper -->
-    <section id="wrapper">
-        <header>
-            <div class="inner">
-                <h2>Generic</h2>
-                <p>Phasellus non pulvinar erat. Fusce tincidunt nisl eget ipsum.</p>
-                <div class="col-12"><span class="image fit"><img src="{{asset('front/images/pic08.jpg')}}" alt="" /></span></div>
+  <!-- about section -->
+  @if ($kegiatan)
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                {{$kegiatan -> nama_kegiatan}}
+              </h2>
+
             </div>
-        </header>
-
-        <!-- Content -->
-            <div class="wrapper">
-                <div class="inner">
-
-                    <h3 class="major">Lorem ipsum dolor</h3>
-                    <p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-
-                    <p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
-
-                    <h3 class="major">Vitae phasellus</h3>
-                    <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-
-                    <section class="features">
-                        <article>
-                            <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-                            <h3 class="major">Sed feugiat lorem</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
-                        </article>
-                        <article>
-                            <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-                            <h3 class="major">Nisl placerat</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-                            <a href="#" class="special">Learn more</a>
-                        </article>
-                    </section>
-
-                </div>
-            </div>
-
-    </section>
-
-<!-- Footer -->
-    <section id="footer">
-        <div class="inner">
-            <h2 class="major">Get in touch</h2>
-            <p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-            <form method="post" action="#">
-                <div class="fields">
-                    <div class="field">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" />
-                    </div>
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" />
-                    </div>
-                    <div class="field">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="message" rows="4"></textarea>
-                    </div>
-                </div>
-                <ul class="actions">
-                    <li><input type="submit" value="Send Message" /></li>
-                </ul>
-            </form>
-            <ul class="contact">
-                <li class="icon solid fa-home">
-                    Untitled Inc<br />
-                    1234 Somewhere Road Suite #2894<br />
-                    Nashville, TN 00000-0000
-                </li>
-                <li class="icon solid fa-phone">(000) 000-0000</li>
-                <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-                <li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-                <li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
-                <li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            </ul>
+            <p>
+              {{$kegiatan -> deskripsi_kegiatan}}
+            </p>
+          </div>
         </div>
-    </section>
-
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{{asset('images/kegiatan/'.$kegiatan-> gambar)}}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
+            </p>
+          </div>
+        </div>
+  </section>
+  @else
+  <p>Data tidak Ditemukan</p>
+  @endif
 
-@endsection
+  <!-- end about section -->
+
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="info_logo">
+        <h2>
+          Digitf
+        </h2>
+      </div>
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              About Shop
+            </h5>
+            <div>
+              <div class="img-box">
+                <img src="images/location-white.png" width="18px" alt="">
+              </div>
+              <p>
+                Address
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/telephone-white.png" width="12px" alt="">
+              </div>
+              <p>
+                +01 1234567890
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="images/envelope-white.png" width="18px" alt="">
+              </div>
+              <p>
+                demo@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Informations
+            </h5>
+            <p>
+              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="info_insta">
+            <h5>
+              Instagram
+            </h5>
+            <div class="insta_container">
+              <div>
+                <a href="">
+                  <div class="insta-box b-1">
+                    <img src="images/i-1.jpg" alt="">
+                  </div>
+                </a>
+                <a href="">
+                  <div class="insta-box b-2">
+                    <img src="images/i-2.jpg" alt="">
+                  </div>
+                </a>
+              </div>
+
+              <div>
+                <a href="">
+                  <div class="insta-box b-3">
+                    <img src="images/i-3.jpg" alt="">
+                  </div>
+                </a>
+                <a href="">
+                  <div class="insta-box b-4">
+                    <img src="images/i-4.jpg" alt="">
+                  </div>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <div class="insta-box b-3">
+                    <img src="images/i-5.jpg" alt="">
+                  </div>
+                </a>
+                <a href="">
+                  <div class="insta-box b-4">
+                    <img src="images/i-6.jpg" alt="">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <img src="images/fb.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/twitter.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/linkedin.png" alt="">
+              </a>
+              <a href="">
+                <img src="images/youtube.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section ">
+    <div class="container">
+      <p>
+        &copy; 2019 All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </section>
+  <!-- end  footer section -->
+
+
+  <script type="text/javascript" src="{{asset('front/js/jquery-3.4.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('front/js/bootstrap.js')}}"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        420: {
+          items: 2
+        },
+        1000: {
+          items: 5
+        }
+      }
+
+    });
+  </script>
+  <script>
+    var nav = $("#navbarSupportedContent");
+    var btn = $(".custom_menu-btn");
+    btn.click
+    btn.click(function (e) {
+
+      e.preventDefault();
+      nav.toggleClass("lg_nav-toggle");
+      document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style")
+    });
+  </script>
+  <script>
+    $('.carousel').on('slid.bs.carousel', function () {
+      $(".indicator-2 li").removeClass("active");
+      indicators = $(".carousel-indicators li.active").data("slide-to");
+      a = $(".indicator-2").find("[data-slide-to='" + indicators + "']").addClass("active");
+      console.log(indicators);
+
+    })
+  </script>
+
+</body>
+</body>
+
+</html>
